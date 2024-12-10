@@ -1,6 +1,9 @@
 function combinations(digits){
-    if(digits.length === 0){
+    if(digits.length === 0 || digits.length > 4){
         return [];
+    }
+    if(typeof(digits) !== 'string' ){
+        return []
     }
     const wordsMap ={
         "2":["a","b","c"],
@@ -15,6 +18,9 @@ function combinations(digits){
     result = [""]
     for(digit of digits){
         const words = wordsMap[digit];
+        if(typeof(words) === 'undefined'){
+            return []
+        }
         const tmp = [];
         for(const prefix of result){
             for(const word of words){
@@ -25,23 +31,4 @@ function combinations(digits){
     }
     return result;
 }
-
-
-if (JSON.stringify(combinations("23"))== JSON.stringify(["ad","ae","af","bd","be","bf","cd","ce","cf"])){
-    console.log("Sucess");
-}else{
-    console.log("Wrong");
-    console.log(combinations("23"));
-}
-if (JSON.stringify(combinations(""))== JSON.stringify([])){
-    console.log("Sucess");
-}else{
-    console.log("Wrong");
-    console.log(combinations(""));
-}
-if (JSON.stringify(combinations("2"))== JSON.stringify(["a","b","c"])){
-    console.log("Sucess");
-}else{
-    console.log("Wrong");
-    console.log(combinations("2"));
-}
+module.exports = combinations;
