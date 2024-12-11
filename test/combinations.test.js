@@ -15,6 +15,11 @@ test('Input: "2", Output: ["a","b","c"]', () => {
     const expectedOutput = ["a","b","c"];
     expect(combinations(input).sort()).toEqual(expectedOutput.sort());
 });
+test('Input: "2", Output: ["a","b","c"]', () => {
+    const input = "2";
+    const expectedOutput = ["a","b","c"];
+    expect(combinations(input,"reverse").sort()).toEqual(expectedOutput.sort());
+});
 test('Input: 2, Output: []', () => {
     const input = 2;
     const expectedOutput = [];
