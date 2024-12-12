@@ -1,9 +1,13 @@
 function combinations(digits){
-    if(digits.length === 0 || digits.length > 4){
+    if(digits.length === 0){
+        return [];
+    }else if(digits.length > 4){
+        console.error("Input length must be between 0 and 4 characters.");
         return [];
     }
     if(typeof(digits) !== 'string' ){
-        return []
+        console.error("Input must be string.");
+        return [];
     }
     const wordsMap ={
         "2":["a","b","c"],
@@ -19,7 +23,8 @@ function combinations(digits){
     for(digit of digits){
         const words = wordsMap[digit];
         if(typeof(words) === 'undefined'){
-            return []
+            console.error("Input contains invalid characters.");
+            return [];
         }
         const tmp = [];
         for(const prefix of result){
