@@ -34,6 +34,6 @@ function combinations(digits){
         }
         result = tmp;
     }
-    return result;
+    return result
 }
 module.exports = combinations;
